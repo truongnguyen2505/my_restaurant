@@ -39,20 +39,69 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll(); // Trigger once on load
 
-    // Form submission for Unicode support
-    const form = document.querySelector('.reservation-form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const guests = document.getElementById('guests').value;
+    // // Form submission for Unicode support
+    // const form = document.querySelector('.reservation-form');
+    // if (form) {
+    //     form.addEventListener('submit', (e) => {
+    //         e.preventDefault();
+    //         const name = document.getElementById('name').value;
+    //         const date = document.getElementById('date').value;
+    //         const time = document.getElementById('time').value;
+    //         const guests = document.getElementById('guests').value;
 
-            const subject = "Table Reservation";
-            const body = `Name: ${name}\r\nDate: ${date}\r\nTime: ${time}\r\nGuests: ${guests}`;
+    //         const subject = "Table Reservation";
+    //         const body = `Name: ${name}\r\nDate: ${date}\r\nTime: ${time}\r\nGuests: ${guests}`;
 
-            window.location.href = `mailto:reservations@akaisushi.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    //         window.location.href = `mailto:reservations@akaisushi.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    //     });
+    // }
+
+    // EmailJS
+const form = document.querySelector(".reservation-form");
+
+if (form) {
+
+    form.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const btn = form.querySelector("button");
+
+        btn.disabled = true;
+        btn.innerText = "Sending...";
+
+        emailjs.send(
+            "service_uhas1rw",
+            "template_hhyfys3",
+            {
+                name: document.getElementById("name").value,
+                booking_date: document.getElementById("date").value,
+                hour: document.getElementById("time").value,
+                quantity: document.getElementById("guests").value,
+                number: document.getElementById("phone").value
+            }
+        )
+        .then(function () {
+            alert("🎉 Reservation sent successfully!\n\nThank you for your reservation.");
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
+        })
+        .catch(function (error) {
+
+            console.log(error);
+
+            alert(error.text || error.message);
+
+        })
+        .finally(function () {
+
+            btn.disabled = false;
+            btn.innerText = "Send Reservation Request";
+
         });
-    }
+
+    });
+
+}
 });

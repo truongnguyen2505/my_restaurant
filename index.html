@@ -187,11 +187,16 @@
                     <p>Reserve your spot to experience culinary artistry.</p>
                 </div>
                 <div class="form-container">
-                    <form action="mailto:truongnd.work@gmail.com?subject=Table%20Reservation" method="POST"
-                        enctype="text/plain" class="reservation-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="Name" required placeholder="Your Name">
+                    <form id="reservation-form" class="reservation-form">
+                        <div class="form-row">
+                            <div  class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="Name" required placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="text" id="phone" name="Phone" required placeholder="Your Phone Number">
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -224,7 +229,7 @@
             </div>
             <div class="footer-col">
                 <h3>Contact</h3>
-                <p>Email: booking@akaisushi.com</p>
+                <p>Email: truongnd.work@gmail.com</p>
                 <p>Phone: +1 234 567 890</p>
             </div>
             <div class="footer-col">
@@ -247,8 +252,9 @@
             </div>
         </div>
     </footer>
-
-    <script src="./script.js"></script>
+<script src="./script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init({publicKey:"w3LB584iFXnVxZPxx"});</script>
 </body>
 
 </html>
