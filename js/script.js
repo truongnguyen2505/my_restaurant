@@ -1,3 +1,5 @@
+import { BookingApi } from "./booking-api.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
@@ -56,50 +58,56 @@ document.addEventListener('DOMContentLoaded', () => {
     //     });
     // }
 
-    // EmailJS
 const form = document.querySelector(".reservation-form");
 
 if (form) {
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async (event) => {
 
-        e.preventDefault();
+        event.preventDefault();
 
-        const btn = form.querySelector("button");
+        const button = form.querySelector("button");
 
-        btn.disabled = true;
-        btn.innerText = "Sending...";
+        button.disabled = true;
+        button.innerText = "Sending...";
 
-        emailjs.send(
-            "service_uhas1rw",
-            "template_hhyfys3",
-            {
-                name: document.getElementById("name").value,
+        try {
+
+            const payload = {
+
+                name: document.getElementById("name").value.trim(),
+
+                phone: document.getElementById("phone").value.trim(),
+
                 booking_date: document.getElementById("date").value,
-                hour: document.getElementById("time").value,
-                quantity: document.getElementById("guests").value,
-                number: document.getElementById("phone").value
-            }
-        )
-        .then(function () {
-            alert("🎉 Reservation sent successfully!\n\nThank you for your reservation.");
-            setTimeout(() => {
-                window.location.reload();
-            }, 1500);
-        })
-        .catch(function (error) {
 
-            console.log(error);
+                booking_time: document.getElementById("time").value,
 
-            alert(error.text || error.message);
+                guest_count: Number(
+                    document.getElementById("guests").value
+                )
 
-        })
-        .finally(function () {
+            };
 
-            btn.disabled = false;
-            btn.innerText = "Send Reservation Request";
+            const result = await BookingApi.create(payload);
 
-        });
+            alert(result.message);
+
+            form.reset();
+
+        }
+        catch (error) {
+
+            alert(error.message);
+
+        }
+        finally {
+
+            button.disabled = false;
+
+            button.innerText = "Send Reservation Request";
+
+        }
 
     });
 
