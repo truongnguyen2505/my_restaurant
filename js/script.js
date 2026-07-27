@@ -91,7 +91,7 @@ if (form) {
 
             const result = await BookingApi.create(payload);
 
-            alert(result.message);
+            alert(result.data.message);
 
             form.reset();
 
