@@ -147,8 +147,13 @@
     align-items: center;
     text-align: center;
     border: 1px solid rgba(229, 179, 118, 0.3);
-    padding: 20px;
+    padding: 25px;
     box-sizing: border-box;
+}
+
+.fb-cover-back .cover-content {
+    justify-content: flex-start;
+    padding-top: 55px;
 }
 
 .cover-logo {
@@ -186,6 +191,13 @@
     font-size: 0.85rem;
     color: var(--accent);
     animation: bounce 2s infinite;
+}
+
+.cover-footer-text {
+    margin-top: auto;
+    font-size: 0.82rem;
+    color: rgba(229, 179, 118, 0.6);
+    letter-spacing: 1px;
 }
 
 @keyframes bounce {

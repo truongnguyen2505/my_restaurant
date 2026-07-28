@@ -137,4 +137,5 @@ Dữ liệu chính quản lý trên hệ thống là **Reservation (Đặt bàn)
 1. **Giới hạn số dòng**: **Không một file nào được vượt quá 1000 dòng code**.
 2. **Nguyên tắc Phân tách Module (Modularization)**: Khi có nhiều tính năng hoặc component mới (ví dụ: Flipbook Menu, Modal, Order Cart...), bắt buộc phải tách riêng stylesheet và JS module sang các file độc lập (`css/flipbook.css`, `js/menu-flipbook.js`) thay vì dồn chung vào một file duy nhất.
 3. **Thực hiện theo logic đã xác định**: Tuân thủ đúng kiến trúc, quy trình xử lý và logic nghiệp vụ đã thống nhất trong `PROJECT_CONTEXT.md`.
+4. **Quản lý Cache (Anti-Cache Strategy)**: Đính kèm thẻ Meta `Cache-Control: no-cache` trong HTML head và sử dụng versioning parameter (`?v=X.X.X`) cho toàn bộ file CSS/JS để ép trình duyệt luôn cập nhật giao diện mới nhất ngay sau khi deploy.
 
