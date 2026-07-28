@@ -15,7 +15,8 @@ japanese_restaurant/
 ├── index.html            # Trang đơn Landing Page (Navbar, Hero, About, Menu, Reservation, Footer)
 ├── PROJECT_CONTEXT.md    # Tài liệu ngữ cảnh dự án dành cho AI/Developers
 ├── css/
-│   └── styles.css        # Toàn bộ CSS (Variables, Layout, Components, Animations, Responsive)
+│   ├── styles.css        # Toàn bộ CSS (Variables, Layout, Components, Animations, Responsive)
+│   └── flipbook-v2.css   # Dynamic 3D Flipbook menu stylesheet (Hard Cache Busting v2.0)
 └── js/
     ├── config.js         # Cấu hình ứng dụng (API Base URL, Timeout)
     ├── http-client.js    # Fetch API wrapper xử lý HTTP requests & AbortController timeout

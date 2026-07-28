@@ -152,8 +152,8 @@
 }
 
 .fb-cover-back .cover-content {
-    justify-content: flex-start;
-    padding-top: 55px;
+    justify-content: flex-start !important;
+    padding-top: 55px !important;
 }
 
 .cover-logo {
@@ -194,7 +194,7 @@
 }
 
 .cover-footer-text {
-    margin-top: auto;
+    margin-top: auto !important;
     font-size: 0.82rem;
     color: rgba(229, 179, 118, 0.6);
     letter-spacing: 1px;
