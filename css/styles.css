@@ -202,8 +202,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Subtle geometric or gradient placeholder */
-    background: radial-gradient(circle at center, #2a0808 0%, #121212 70%);
+    background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.85)), url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
     z-index: -2;
     transform: scale(1.1);
     animation: slowZoom 20s infinite alternate linear;
@@ -290,15 +289,23 @@ a {
     flex-direction: column;
 }
 
-.menu-item-image {
+.menu-item-image-wrapper {
     width: 100%;
     height: 220px;
+    overflow: hidden;
+    background-color: var(--surface-light);
+    position: relative;
+}
+
+.menu-item-image {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
 .menu-item:hover .menu-item-image {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .menu-item-details {
@@ -379,23 +386,13 @@ a {
     font-size: 1.1rem;
 }
 
-.image-placeholder {
+.about-img {
     width: 100%;
     height: 400px;
-    background: linear-gradient(45deg, var(--surface-light), #3a0e0e);
+    object-fit: cover;
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-style: italic;
-    color: var(--text-secondary);
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-@media (max-width: 768px) {
-    .about-content {
-        flex-direction: column;
-    }
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Reservation Section */
@@ -552,21 +549,30 @@ footer {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
     .hamburger {
         display: block;
+        z-index: 1001;
     }
 
     .nav-links {
-        position: fixed;
+        position: absolute;
+        top: 100%;
         left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--surface-color);
         width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        padding: 40px 0;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
+        height: calc(100vh - 60px);
+        min-height: 100vh;
+        background-color: #181818;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 40px;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .nav-links.active {
@@ -574,10 +580,95 @@ footer {
     }
 
     .nav-links li {
-        margin: 15px 0;
+        margin: 16px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 1.2rem;
+        display: inline-block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .about-section, .menu-section, .reservation-section {
+        padding: 60px 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .about-text, .about-image {
+        width: 100%;
+        flex: none;
+    }
+
+    .about-img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
     }
 
     .menu-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .reservation-wrapper {
+        padding: 30px 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    input {
+        font-size: 16px; /* Prevents auto-zoom on mobile Safari */
+    }
+
+    .wrapper-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .section-header h2, .about-text h2, .menu-category h3 {
+        font-size: 1.7rem;
+    }
+
+    .reservation-wrapper {
+        padding: 24px 16px;
     }
 }
