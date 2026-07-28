@@ -37,6 +37,28 @@ export class MenuFlipbook {
             this.nextBtn.addEventListener('click', () => this.nextPage());
         }
 
+        // Direct click on book pages to flip
+        this.pages.forEach((page, index) => {
+            page.addEventListener('click', (e) => {
+                if (e.target.closest('a') || e.target.closest('button')) return;
+
+                if (this.isMobile) {
+                    if (this.currentPage < this.totalPages - 1) {
+                        this.nextPage();
+                    } else {
+                        this.currentPage = 0;
+                        this.updateView();
+                    }
+                } else {
+                    if (this.currentPage === 0 || index % 2 === 0) {
+                        this.nextPage();
+                    } else {
+                        this.prevPage();
+                    }
+                }
+            });
+        });
+
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             const flipbookSection = document.getElementById('flipbook-container');
