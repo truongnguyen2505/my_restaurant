@@ -1,6 +1,32 @@
 import { BookingApi } from "./booking-api.js";
+import { MenuFlipbook } from "./menu-flipbook.js";
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize 3D Flipbook Menu
+    new MenuFlipbook('#flipbook');
+
+    // View Toggle Handler (Flipbook View vs Grid View)
+    const btnFlipbook = document.getElementById('btn-view-flipbook');
+    const btnGrid = document.getElementById('btn-view-grid');
+    const flipbookContainer = document.getElementById('flipbook-container');
+    const gridViewContainer = document.getElementById('grid-view-container');
+
+    if (btnFlipbook && btnGrid && flipbookContainer && gridViewContainer) {
+        btnFlipbook.addEventListener('click', () => {
+            btnFlipbook.classList.add('active');
+            btnGrid.classList.remove('active');
+            flipbookContainer.classList.remove('hidden');
+            gridViewContainer.classList.add('hidden');
+        });
+
+        btnGrid.addEventListener('click', () => {
+            btnGrid.classList.add('active');
+            btnFlipbook.classList.remove('active');
+            gridViewContainer.classList.remove('hidden');
+            flipbookContainer.classList.add('hidden');
+        });
+    }
+
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     

@@ -1,0 +1,339 @@
+/* View Toggle Bar */
+.view-toggle-bar {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.view-toggle-btn {
+    background-color: var(--surface-color);
+    color: var(--text-secondary);
+    border: 1px solid var(--surface-light);
+    padding: 10px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+}
+
+.view-toggle-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--primary-color);
+}
+
+.view-toggle-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+}
+
+/* 3D Flipbook Container */
+.flipbook-container {
+    max-width: 960px;
+    margin: 0 auto;
+    perspective: 2000px;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.flipbook-container.hidden,
+.grid-view-container.hidden {
+    display: none;
+}
+
+.flipbook-wrapper {
+    position: relative;
+    width: 100%;
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flipbook {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    transform-style: preserve-3d;
+}
+
+.fb-page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    background-color: #1a1717;
+    border: 1px solid rgba(229, 179, 118, 0.2);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 0 10px 25px rgba(0, 0, 0, 0.6);
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.4s ease;
+    backface-visibility: hidden;
+    overflow: hidden;
+    display: none;
+    padding: 35px 30px;
+    box-sizing: border-box;
+}
+
+.fb-page.visible {
+    display: block;
+}
+
+/* Desktop 2-page spread positioning */
+.fb-page.left-spread {
+    left: 0;
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+    background: linear-gradient(to right, #1f1b1b, #151212);
+    box-shadow: inset -15px 0 25px rgba(0, 0, 0, 0.7), -10px 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.fb-page.right-spread {
+    left: 50%;
+    border-radius: 0 8px 8px 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to left, #1f1b1b, #151212);
+    box-shadow: inset 15px 0 25px rgba(0, 0, 0, 0.7), 10px 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.fb-page.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Cover Styling */
+.fb-cover-front {
+    left: 25% !important;
+    width: 50% !important;
+    border-radius: 8px !important;
+    background: linear-gradient(rgba(25, 6, 6, 0.75), rgba(15, 3, 3, 0.88)), url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=800&auto=format&fit=crop') center/cover no-repeat !important;
+    border: 2px solid var(--accent) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8) !important;
+}
+
+.fb-cover-back {
+    left: 25% !important;
+    width: 50% !important;
+    border-radius: 8px !important;
+    background: linear-gradient(rgba(25, 6, 6, 0.75), rgba(15, 3, 3, 0.88)), url('https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=800&auto=format&fit=crop') center/cover no-repeat !important;
+    border: 2px solid var(--accent) !important;
+}
+
+/* Food Background Images for Pages */
+.fb-page-intro {
+    background: linear-gradient(rgba(18, 14, 14, 0.88), rgba(12, 9, 9, 0.94)), url('https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=800&auto=format&fit=crop') center/cover no-repeat !important;
+}
+
+.fb-page-sushi {
+    background: linear-gradient(rgba(18, 14, 14, 0.88), rgba(12, 9, 9, 0.94)), url('https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=800&auto=format&fit=crop') center/cover no-repeat !important;
+}
+
+.fb-page-hot {
+    background: linear-gradient(rgba(18, 14, 14, 0.88), rgba(12, 9, 9, 0.94)), url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop') center/cover no-repeat !important;
+}
+
+.fb-page-sake {
+    background: linear-gradient(rgba(18, 14, 14, 0.88), rgba(12, 9, 9, 0.94)), url('https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=800&auto=format&fit=crop') center/cover no-repeat !important;
+}
+
+.cover-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(229, 179, 118, 0.3);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.cover-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--text-primary);
+}
+
+.cover-logo span {
+    color: var(--primary-color);
+}
+
+.cover-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin: 10px 0;
+}
+
+.cover-ornament {
+    font-size: 2.5rem;
+    margin: 15px 0;
+}
+
+.cover-tagline {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+.flip-hint {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: var(--accent);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Page Inner Styling */
+.page-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.page-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.page-content h2 {
+    font-size: 1.6rem;
+    color: var(--accent);
+    margin-top: 4px;
+}
+
+.page-intro-text {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.chef-highlight {
+    margin-top: auto;
+    background-color: rgba(229, 179, 118, 0.08);
+    border-left: 3px solid var(--accent);
+    padding: 12px 15px;
+    border-radius: 0 4px 4px 0;
+}
+
+.chef-highlight h4 {
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.chef-highlight p {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.fb-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.fb-menu-item {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.fb-item-head {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.fb-item-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+.fb-item-price {
+    color: var(--accent);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+
+.fb-item-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: 3px;
+}
+
+.page-footer-num {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+}
+
+/* Controls Bar */
+.fb-controls {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.fb-ctrl-btn {
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    border: 1px solid var(--surface-light);
+    padding: 8px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.fb-ctrl-btn:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.fb-ctrl-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.fb-page-num {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 0.95rem;
+    min-width: 120px;
+}
+
+/* Responsive Flipbook */
+@media (max-width: 768px) {
+    .flipbook-wrapper {
+        height: 480px;
+    }
+
+    .fb-page, .fb-cover-front, .fb-cover-back {
+        left: 0 !important;
+        width: 100% !important;
+        border-radius: 8px !important;
+    }
+}

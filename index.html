@@ -8,6 +8,7 @@
     <meta name="description"
         content="Experience premium Japanese cuisine with our exquisite sushi, ramen, and hot dishes.">
     <link rel="stylesheet" href="./css/styles.css?v=1.0.1">
+    <link rel="stylesheet" href="./css/flipbook.css?v=1.0.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -81,6 +82,182 @@
                 <h2>The Culinary Journey</h2>
                 <div class="divider"></div>
             </div>
+
+            <!-- View Toggle Switch -->
+            <div class="view-toggle-bar text-center reveal fade-up">
+                <button id="btn-view-flipbook" class="view-toggle-btn active">📖 3D Flipbook View</button>
+                <button id="btn-view-grid" class="view-toggle-btn">⣿ Classic Grid View</button>
+            </div>
+
+            <!-- 3D Flipbook Menu View -->
+            <div id="flipbook-container" class="flipbook-container reveal fade-up">
+                <div id="flipbook-wrapper" class="flipbook-wrapper">
+                    <div id="flipbook" class="flipbook">
+                        <!-- Page 1: Front Cover -->
+                        <div class="fb-page fb-cover-front">
+                            <div class="cover-content">
+                                <div class="cover-logo"><span>A</span>KAI</div>
+                                <div class="cover-subtitle">AUTHENTIC JAPANESE CUISINE</div>
+                                <div class="cover-ornament">⛩️</div>
+                                <p class="cover-tagline">Artistry in Every Bite</p>
+                                <div class="flip-hint">Click or Swipe to Turn Page 📖</div>
+                            </div>
+                        </div>
+
+                        <!-- Page 2: Introduction & Master Story -->
+                        <div class="fb-page fb-page-inside fb-page-intro">
+                            <div class="page-content">
+                                <span class="page-category">Introduction</span>
+                                <h2>Master Culinary Craft</h2>
+                                <div class="divider" style="margin: 10px 0 15px 0;"></div>
+                                <p class="page-intro-text">At Akai, our philosophy centers on harmony, wild-caught ingredients, and centuries of traditional master techniques.</p>
+                                
+                                <div class="chef-highlight">
+                                    <h4>Chef's Recommendation</h4>
+                                    <p>"Our Omakase Platter features today's finest seasonal seafood flown directly from Tokyo's Toyosu Market."</p>
+                                </div>
+                            </div>
+                            <div class="page-footer-num">1</div>
+                        </div>
+
+                        <!-- Page 3: Signature Sushi Sets -->
+                        <div class="fb-page fb-page-inside fb-page-sushi">
+                            <div class="page-content">
+                                <span class="page-category">Selection 01</span>
+                                <h2>Signature Sushi</h2>
+                                <div class="divider" style="margin: 10px 0 15px 0;"></div>
+                                
+                                <div class="fb-menu-list">
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Dragon Roll Supremacy</span>
+                                            <span class="fb-item-price">$22.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">Eel, cucumber topped with avocado, tobiko & unagi sauce.</p>
+                                    </div>
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Spicy Tuna Deluxe</span>
+                                            <span class="fb-item-price">$18.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">Yellowfin tuna, spicy mayo, scallions & tempura flakes.</p>
+                                    </div>
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Omakase Platter</span>
+                                            <span class="fb-item-price">$65.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">Chef's daily selection of 12 seasonal nigiri pieces.</p>
+                                    </div>
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Rainbow Roll</span>
+                                            <span class="fb-item-price">$20.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">Crab meat, avocado topped with fresh assorted sashimi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-footer-num">2</div>
+                        </div>
+
+                        <!-- Page 4: Hot Kitchen -->
+                        <div class="fb-page fb-page-inside fb-page-hot">
+                            <div class="page-content">
+                                <span class="page-category">Selection 02</span>
+                                <h2>Hot Kitchen</h2>
+                                <div class="divider" style="margin: 10px 0 15px 0;"></div>
+
+                                <div class="fb-menu-list">
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Wagyu Beef Ishiyaki</span>
+                                            <span class="fb-item-price">$45.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">A5 Wagyu beef cooked on a hot stone with ponzu dip.</p>
+                                    </div>
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Tonkotsu Ramen</span>
+                                            <span class="fb-item-price">$19.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">24-hour pork bone broth, soft egg, chashu pork belly.</p>
+                                    </div>
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Miso Black Cod</span>
+                                            <span class="fb-item-price">$32.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">Alaskan black cod marinated in saikyo miso & grilled.</p>
+                                    </div>
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Chicken Teriyaki</span>
+                                            <span class="fb-item-price">$24.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">Free-range chicken breast glazed with house teriyaki.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-footer-num">3</div>
+                        </div>
+
+                        <!-- Page 5: Sake & Desserts -->
+                        <div class="fb-page fb-page-inside fb-page-sake">
+                            <div class="page-content">
+                                <span class="page-category">Selection 03</span>
+                                <h2>Sake & Desserts</h2>
+                                <div class="divider" style="margin: 10px 0 15px 0;"></div>
+
+                                <div class="fb-menu-list">
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Dassai 23 Junmai Daiginjo</span>
+                                            <span class="fb-item-price">$85.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">Ultra-premium sake milled to 23%, delicate melon notes.</p>
+                                    </div>
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Matcha Artisanal Parfait</span>
+                                            <span class="fb-item-price">$14.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">Uji matcha gelato, azuki bean paste, shiratama mochi.</p>
+                                    </div>
+                                    <div class="fb-menu-item">
+                                        <div class="fb-item-head">
+                                            <span class="fb-item-title">Yuzu Sencha Iced Tea</span>
+                                            <span class="fb-item-price">$8.00</span>
+                                        </div>
+                                        <p class="fb-item-desc">Japanese green tea infused with fresh citrus yuzu.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-footer-num">4</div>
+                        </div>
+
+                        <!-- Page 6: Back Cover -->
+                        <div class="fb-page fb-cover-back">
+                            <div class="cover-content">
+                                <h2>Reserve Your Experience</h2>
+                                <p>Join us at Akai for an unforgettable dining journey.</p>
+                                <a href="#reservation" class="btn btn-primary" style="margin-top: 25px;">Book a Table Now</a>
+                                <div class="cover-footer-text">© 2026 Akai Restaurant</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="fb-controls text-center">
+                    <button id="fb-prev" class="fb-ctrl-btn" title="Previous Page">‹ Previous</button>
+                    <span id="fb-page-num" class="fb-page-num">Front Cover (1 / 6)</span>
+                    <button id="fb-next" class="fb-ctrl-btn" title="Next Page">Next ›</button>
+                </div>
+            </div>
+
+            <!-- Classic Grid View Container (Hidden when Flipbook active) -->
+            <div id="grid-view-container" class="grid-view-container hidden">
 
             <div class="menu-category reveal fade-up">
                 <h3>Signature Sushi Sets</h3>
@@ -186,7 +363,6 @@
                             </div>
                             <p>Grilled free-range chicken breast glazed with house-made teriyaki sauce.</p>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

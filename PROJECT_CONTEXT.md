@@ -20,7 +20,8 @@ japanese_restaurant/
     ├── config.js         # Cấu hình ứng dụng (API Base URL, Timeout)
     ├── http-client.js    # Fetch API wrapper xử lý HTTP requests & AbortController timeout
     ├── booking-api.js    # Service layer tương tác API đặt bàn
-    └── script.js         # Entry point chính xử lý UI (Scroll effects, Animations, Mobile menu, Form submission)
+    ├── menu-flipbook.js   # Module quản lý lật trang 3D Flipbook & Touch Swipe (Desktop spread & Mobile single mode)
+    └── script.js         # Entry point chính xử lý UI (Scroll effects, Animations, View Toggle, Form submission)
 ```
 
 ---
@@ -129,3 +130,11 @@ Dữ liệu chính quản lý trên hệ thống là **Reservation (Đặt bàn)
 ### HTML / CSS
 - **Class & ID Name**: `kebab-case` (`reservation-form`, `btn-primary`, `nav-links`).
 - **CSS Custom Properties**: `--kebab-case` (`--primary-color`, `--bg-color`, `--accent`).
+
+---
+
+## 9. Quy tắc Giới hạn Kích thước File & Phân tách Module (Codebase Rules)
+1. **Giới hạn số dòng**: **Không một file nào được vượt quá 1000 dòng code**.
+2. **Nguyên tắc Phân tách Module (Modularization)**: Khi có nhiều tính năng hoặc component mới (ví dụ: Flipbook Menu, Modal, Order Cart...), bắt buộc phải tách riêng stylesheet và JS module sang các file độc lập (`css/flipbook.css`, `js/menu-flipbook.js`) thay vì dồn chung vào một file duy nhất.
+3. **Thực hiện theo logic đã xác định**: Tuân thủ đúng kiến trúc, quy trình xử lý và logic nghiệp vụ đã thống nhất trong `PROJECT_CONTEXT.md`.
+
